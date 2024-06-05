@@ -31,7 +31,20 @@ public class RecipeController {
 
     @DeleteMapping("/api/recipe/{recipeId}")
     public String deleteRecipe(@PathVariable Long recipeId) throws Exception {
-        RecipeService.deleteRecipe(recipeId);
+        recipeService.deleteRecipe(recipeId);
         return "Recipe Deleted Successfully";
+    }
+
+    @PutMapping("/api/recipe/{id}")
+    public Recipe updateRecipe(@RequestBody Recipe recipe, @PathVariable Long id) throws Exception {
+        Recipe updatedRecipe=recipeService.updateRecipe(recipe,id);
+        return updatedRecipe;
+    }
+
+    @PutMapping("/api/recipe/{recipeId}/like/user/{userId}")
+    public Recipe likeRecipe(@PathVariable Long id, @PathVariable Long userId) throws Exception {
+        User user=userService.findUserById(userId);
+        Recipe recipe=recipeService.likeRecipe(id,user);
+        return recipe;
     }
 }
