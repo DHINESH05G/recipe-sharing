@@ -19,7 +19,7 @@ public class Recipe {
     private User user;
     private String image;
     private String description;
-    private boolean Vegetarian;
+    private boolean vegetarian;
     private LocalDateTime createdAt;
     @ElementCollection
     private List<Long> likes=new ArrayList<>();

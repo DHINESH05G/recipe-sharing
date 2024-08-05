@@ -12,4 +12,3 @@ public interface RecipeService  {
     public List<Recipe>findAllRecipe();
     public Recipe likeRecipe(Long recipeId, User user)throws Exception;
 }
-// Time : 1:36 hrs

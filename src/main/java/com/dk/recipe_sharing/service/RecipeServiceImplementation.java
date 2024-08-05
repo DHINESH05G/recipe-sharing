@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RecipeServiceImplementation implements RecipeService{
+public class  RecipeServiceImplementation implements RecipeService{
     @Autowired
     private RecipeRepository recipeRepository;
 
@@ -58,6 +58,6 @@ public class RecipeServiceImplementation implements RecipeService{
         Recipe recipe=findRecipeByid(recipeId);
         if(recipe.getLikes().contains(user.getId())){recipe.getLikes().remove(user.getId());}
         else {recipe.getLikes().add(user.getId());}
-        return null;
+        return recipeRepository.save(recipe);
     }
 }
