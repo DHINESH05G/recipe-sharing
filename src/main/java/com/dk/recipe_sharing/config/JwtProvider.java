@@ -1,24 +1,32 @@
 package com.dk.recipe_sharing.config;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-
-import java.time.Instant;
+import javax.crypto.SecretKey;
 import java.util.Date;
-import io.jsonwebtoken.*;
+
 
 @Service
 public class JwtProvider {
+    private SecretKey key= Keys.hmacShaKeyFor(JwtConstant.JWT_SECRET.getBytes());
     public String generateToken(Authentication auth)
     {
-        String jwt=Jwts.builder()
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime()+86400000))
-                .claim("email",auth.getAuthorities())
-                .signWith(null)
-                .compact();
+        String jwt=Jwts.builder().setIssuedAt(new Date())
+                    .setExpiration(new Date(new Date().getTime()+86400000))
+                    .claim("email",auth.getAuthorities())
+                    .signWith(key)
+                    .compact();
         return jwt;
-    }
 
+    }
+    public String getEmailFromJwtToken(String jwt)
+    {
+        jwt=jwt.substring(7);
+        Claims claims=Jwts.parser().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
+        String email=claims.get("email").toString();
+        return email;
+    }
 }
