@@ -56,23 +56,41 @@ mvn spring-boot:run
 Project Structure
 
 recipe-sharing-app/
+
 ├── src/
+
 │   ├── main/
+
 │   │   ├── java/
+
 │   │   │   ├── com/
+
 │   │   │   │   └── dk/
+
 │   │   │   │       └── recipe_sharing_app/
+
 │   │   │   │           └── ... 
+
 │   │   │   └── ...
+
 │   │   └── resources/
+
 │   │       ├── application.properties
+
 │   │       └── ...
+
 │   └── test/
+
 │       └── java/
+
 │           └── com/
+
 │               └── dk/
+
 │                   └── recipe_sharing_app/
+
 │                       └── ...
+
 └── ...
 
 
