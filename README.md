@@ -33,7 +33,7 @@ MySQL (or your chosen database)
 Clone the Repository:
 bash
 
-git clone <repository_url>
+git clone (https://github.com/DHINESH05G/recipe-sharing.git)
 Set Up Database:
 Create a database for your application.
 Update the database connection details in application.properties (or application.yml).
@@ -74,6 +74,8 @@ recipe-sharing-app/
 │                   └── recipe_sharing_app/
 │                       └── ...
 └── ...
+
+
 Contributing
 Contributions are welcome! Please follow these steps:
 
