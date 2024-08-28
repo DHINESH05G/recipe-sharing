@@ -90,7 +90,7 @@ This project is licensed under the MIT License.
 Contact
 For any questions or issues, please contact:
 
-DK- 
+DK-  
 Future Enhancements
 Implement social media integration (e.g., Facebook, Google).
 Add support for different dietary restrictions.
